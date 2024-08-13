@@ -1,4 +1,4 @@
-import { TouchableOpacity, StyleSheet, Text, TextInput, View } from 'react-native';
+import { TouchableOpacity, StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import Api from "./src/service/api"
 import React, { useState } from 'react';
 
@@ -51,18 +51,21 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.mapa}
+        source={require("./assets/mapa.png")}/>
       <Text style={styles.title}>Busca CEP</Text>
       <TextInput style={styles.cep} value={cep} onChangeText={(texto) => setCep(texto.slice(0, 8))} placeholder="00000-000"></TextInput>
       <TouchableOpacity style={styles.buscar} onPress={buscarCEP}>
         <Text style={styles.buscarTxt}>{botao}</Text>
       </TouchableOpacity>
-      <Text style={styles.infos}>{complemento}</Text>
-      <Text style={styles.infos}>{logradouro}</Text>
-      <Text style={styles.infos}>{bairro}</Text>
-      <Text style={styles.infos}>{localidade}</Text>
-      <Text style={styles.infos}>{uf}</Text>
-      <Text style={styles.infos}>{ibge}</Text>
-      <Text style={styles.infos}>{ddd}</Text>
+      <Text style={styles.infos}>{complemento} </Text>
+      <Text style={styles.infos}>{logradouro} </Text>
+      <Text style={styles.infos}>{bairro} </Text>
+      <Text style={styles.infos}>{localidade} </Text>
+      <Text style={styles.infos}>{uf} </Text>
+      <Text style={styles.infos}>{ibge} </Text>
+      <Text style={styles.infos}>{ddd} </Text>
     </View>
   );
 
@@ -75,11 +78,18 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: "#5e1fff",
+    borderTopWidth: 100,
+  },
+  mapa: {
+    width: 60,
+    height: 60,
+    marginTop: -190,
   },
   title: {
     color: "#5e1fff",
     fontWeight: "bold",
     fontSize: 50,
+    marginTop: 60,
   },
   cep: {
     borderColor: "#5e1fff",
